@@ -98,11 +98,15 @@ function fhv(a, b){
 
 app.get("/", (req, res) => {
 	//res.send("Hello")
-	let r = req.query.text
-	let json = {
-		"baybay": transliterate(r)
+	if(req.query.text == undefined){
+		res.send("Documentation Soon...")
+	}else{
+		let r = req.query.text
+		let json = {
+			"baybay": transliterate(r)
+		}
+		res.send(JSON.stringify(json))
 	}
-	res.send(JSON.stringify(json))
 })
 
 app.listen(port, () => {
