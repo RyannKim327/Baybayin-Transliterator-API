@@ -14,10 +14,14 @@ const port = process.env.PORT || 3000
 
 app.get("/", (req, res) => {
 	let r = req.query.word
-	let json = {
-		"baybay": transliterate(i)
+	if(r == undefined){
+		res.send("Connected")
+	}else{
+		let json = {
+			"baybay": transliterate(i)
+		}
+		res.send(JSON.stringify(json))
 	}
-	res.send(JSON.stringify(json))
 })
 
 app.listen(port, () => {
