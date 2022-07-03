@@ -113,3 +113,5 @@ function fhv(a, b){
 		return baybayin[a] + baybayin.v
 	}
 }
+
+module.exports = app
