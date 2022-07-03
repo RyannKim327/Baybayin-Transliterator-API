@@ -12,22 +12,6 @@ const baybayin = {
 
 const port = process.env.PORT || 3000
 
-app.get("/", (req, res) => {
-	let r = req.query.word
-	if(r == undefined){
-		res.send("Connected")
-	}else{
-		let json = {
-			"baybay": transliterate(i)
-		}
-		res.send(JSON.stringify(json))
-	}
-})
-
-app.listen(port, () => {
-	console.log("Listening to a port: " + port)
-})
-
 /*
 let i = prompt("data")
 console.log("Data: " + i)
@@ -117,5 +101,25 @@ function fhv(a, b){
 		return baybayin[a] + baybayin.v
 	}
 }
+
+app.get("/api", (req, res) => {
+	let r = req.query.word
+	if(r == undefined){
+		res.send("Connected")
+	}else{
+		let json = {
+			"baybay": transliterate(i)
+		}
+		res.send(JSON.stringify(json))
+	}
+})
+
+app.get("/", (req, res) => {
+	res.send("Hello")
+})
+
+app.listen(port, () => {
+	console.log("Listening to a port: " + port)
+})
 
 module.exports = app
