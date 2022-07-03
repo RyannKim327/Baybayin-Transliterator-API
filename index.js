@@ -102,17 +102,6 @@ function fhv(a, b){
 	}
 }
 
-app.get("/api", (req, res) => {
-	let r = req.query.word
-	if(r == undefined){
-		res.send("Connected")
-	}else{
-		let json = {
-			"baybay": transliterate(i)
-		}
-		res.send(JSON.stringify(json))
-	}
-})
 
 app.get("/", (req, res) => {
 	res.send("Hello")
