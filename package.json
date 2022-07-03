@@ -1,7 +1,7 @@
 {
-  "name": "Pinoy-Bugtong-API",
+  "name": "Baybayin-Transliterator-Api",
   "version": "1.0.0",
-  "description": "Pinoy Bugtong api. Credits to NKILM",
+  "description": "Baybayin transliterator api. Credits to NKILM",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
