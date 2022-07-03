@@ -1,4 +1,4 @@
-const express = require("expressjs")
+const express = require("express")
 const app = express()
 
 const baybayin = {
