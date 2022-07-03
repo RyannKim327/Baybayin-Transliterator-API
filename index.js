@@ -12,7 +12,6 @@ const baybayin = {
 
 const port = process.env.PORT || 3000
 
-/*
 
 function transliterate(insert){
 	let text = insert.replace(/i/gi, "e").replace(/u/gi, "o").replace(/r/gi, "d").replace(/j/gi, "dy").replace(/v/gi, "b").replace(/x|z/gi, "s").replace(/q/gi, "k").replace(/f/gi, "p").replace(/\s/gi, " ").toLowerCase()
@@ -95,10 +94,15 @@ function fhv(a, b){
 		return baybayin[a] + baybayin.v
 	}
 }
-*/
+
 
 app.get("/", (req, res) => {
-	res.send("Hello")
+	//res.send("Hello")
+	let r = req.query.text
+	let json = {
+		"baybay": transliterate(r)
+	}
+	res.send(JSON.stringify(json))
 })
 
 app.listen(port, () => {
