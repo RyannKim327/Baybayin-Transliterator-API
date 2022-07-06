@@ -3,7 +3,7 @@ const app = express()
 
 const baybayin = {
 	"A": "ᜀ", "E": "ᜁ", "O": "ᜂ",
-	"e": "ᜒ", "o": "ᜓ", "v": "᜔", "b": "ᜊ", "k": "ᜃ", "d": "ᜇ",
+	"e": "ᜒ", "o": "ᜓ", "v": "᜔", "b": "ᜊ", "c": "ᜃ", "k": "ᜃ", "d": "ᜇ",
 	"g": "ᜄ", "h": "ᜑ", "l": "ᜎ", "m": "ᜋ", "n": "ᜈ",
 	"ng": "ᜅ", "p": "ᜉ", "s": "ᜐ",
 	"t": "ᜆ", "w": "ᜏ", "y": "ᜌ",
@@ -12,13 +12,12 @@ const baybayin = {
 
 const port = process.env.PORT || 3000
 
-
 function transliterate(insert){
 	let text = insert.replace(/i/gi, "e").replace(/u/gi, "o").replace(/r/gi, "d").replace(/j/gi, "dy").replace(/v/gi, "b").replace(/x|z/gi, "s").replace(/q/gi, "k").replace(/f/gi, "p").replace(/\s/gi, " ").toLowerCase()
 	let result = ""
 	for(let i = 0; i < text.length; i++){
 		if(i < (text.length - 1)){
-			if(text[i] == "a" ){
+			if(text[i] == "a"){
 				result += baybayin.A
 			}else if(text[i] == "e"){
 				result += baybayin.E
@@ -45,8 +44,25 @@ function transliterate(insert){
 				}else if(text[i + 2] == "o"){
 					result += baybayin.ng + baybayin.o
 					i += 2
+				}else if(text[i + 2] == " "){
+					result += baybayin.ng + baybayin.ng + baybayin.v + " "
+					i += 2
 				}else{
 					result += baybayin.ng + baybayin.v
+					i++
+				}
+			}else if(text[i] == "c" && text[i + 1] == "h"){
+				if(text[i + 2] == "a"){
+					result += baybayin.t + baybayin.v + baybayin.y
+					i += 2
+				}else if(text[i + 2] == "e"){
+					result += baybayin.t + baybayin.v + baybayin.y + baybayin.e
+					i += 2
+				}else if(text[i + 2] == "o"){
+					result += baybayin.t + baybayin.v + baybayin.y + baybayin.o
+					i += 2
+				}else{
+					result += baybayin.t + baybayin.v + baybayin.y
 					i++
 				}
 			}else{
@@ -74,6 +90,7 @@ function transliterate(insert){
 	}
 	return result
 }
+
 function fha(a, b){
 	if(a != "a" && a != "e" && a != "o" && b == "a"){
 		return baybayin[a]
@@ -99,7 +116,7 @@ function fhv(a, b){
 app.get("/", (req, res) => {
 	//res.send("Hello")
 	if(req.query.text == undefined){
-		res.send("Documentation Soon...")
+		res.sendFile(__dirname + "/baybay.html")
 	}else{
 		let r = req.query.text
 		let json = {

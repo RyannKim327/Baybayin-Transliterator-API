@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Baybayin Transliterator API</title>
+		<meta name="viewport" content="width = device-width, initial-scale = 1, minimal-ui">
+		<style type="text/css">
+			.head, .body, .foot{
+				font-variant: small-caps;
+				text-align: center;
+				background-color: #eeeeff;
+				border-radius: 10px;
+				margin:  2vw 1vw;
+				box-shadow: 3px 3px 8px #ddddff;
+				color: #2020ff;
+			}
+			.head h3, .head h5, .foot h5{
+				margin: 0;
+				padding: 2vw;
+			}
+			.body{
+				text-align: left;
+				padding: 2vw;
+			}
+			.body div{
+				padding: 1vw;
+				background-color: #ededed;
+				color: #000000;
+				font-variant: none;
+				font-weight: bold;
+			}
+			.body pre{
+				font-family: 'Courier New', monospace;
+				overflow: scroll;
+				max-width: 100%;
+				min-width: 99%;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<h3>Welcome to</h3>
+			<h5>Baybayin Transliterator API</h5>
+		</div>
+		<div class="body">
+			<p>Call: https://api-baybayin-transliterator.vercel.app</p>
+			<p>Get parameter: text</p>
+			<p>&emsp;This is my simple roman to baybayin transliterator api powered by Vercel App and ExpressJS.</p>
+			<div>
+				<p>Sample code:</p>
+				<pre>
+					<code>
+const axios = require("axios")
+
+async function transliterate(text){
+	let result = await axios.get("https://api-baybayin-transliterator.vercel.app/?text=" + text).then((r) => {  
+		return r.data
+	}).catch((e) => {
+		console.error("Error [Baybayin API]: " + e)
+		return null
+	})
+	return result
+}
+
+module.exports = async (data) => {
+	let result = await transliterate(data)
+	console.log(result)
+}
+					</code>
+				</pre>
+			</div>
+			<div>
+				<p>Sample Result:</p>
+				<pre>
+					<code>
+{
+	"baybay": "Baybayin Characters here"
+}
+					</code>
+				</pre>
+			</div>
+			<p>Result key: baybay</p>
+		</div>
+		<div class="foot">
+			<h5>Developed by MPOP Reverse II</h5>
+		</div>
+	</body>
+</html>
