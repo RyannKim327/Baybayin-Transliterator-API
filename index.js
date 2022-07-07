@@ -45,7 +45,7 @@ function transliterate(insert){
 					result += baybayin.ng + baybayin.o
 					i += 2
 				}else if(text[i + 2] == " "){
-					result += baybayin.ng + baybayin.ng + baybayin.v + " "
+					result += baybayin.n + baybayin.ng + baybayin.v + " "
 					i += 2
 				}else{
 					result += baybayin.ng + baybayin.v
