@@ -34,6 +34,14 @@ function transliterate(insert){
 			}else if(text[i + 1] == "o"){
 				result += fho(text[i], text[i + 1])
 				i++
+			}else if(text[i] == "m" && text[i + 1] == "g"){
+				if(text[i + 2] == "a"){
+					result += baybayin.m + baybayin.ng
+					i += 2
+				}else{
+					result += baybayin.ng + baybayin.v
+					i++
+				}
 			}else if(text[i] == "n" && text[i + 1] == "g"){
 				if(text[i + 2] == "a"){
 					result += baybayin.ng
