@@ -38,4 +38,4 @@ module.exports = async (data) => {
 ```
 ---
 #### Notice feedbacks and contact
-> If you found any error regarding this api, kindly email me @ [mailto:weryses19@gmail.com](weryses19@gmail.com) with the screenshot attached of a particular error. This api is still in development, so expect some bugs.
+> If you found any error regarding this api, kindly email me @ [weryses19@gmail.com](mailto:weryses19@gmail.com) with the screenshot attached of a particular error. This api is still in development, so expect some bugs.

@@ -1,90 +1,72 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 		<title>Baybayin Transliterator API</title>
-		<meta name="viewport" content="width = device-width, initial-scale = 1, minimal-ui">
+		<meta name="description" content="A documentation for baybayin transliterator.">
 		<style type="text/css">
-			.head, .body, .foot{
-				font-variant: small-caps;
-				text-align: center;
-				background-color: #eeeeff;
-				border-radius: 10px;
-				margin:  2vw 1vw;
-				box-shadow: 3px 3px 8px #ddddff;
-				color: #2020ff;
-			}
-			.head h3, .head h5, .foot h5{
-				margin: 0;
-				padding: 2vw;
-			}
-			.body{
-				text-align: left;
-				padding: 2vw;
-			}
-			.body div{
-				padding: 1vw;
-				background-color: #ededed;
-				color: #000000;
-				font-variant: none;
-				font-weight: bold;
-			}
-			.body pre{
-				font-family: 'Courier New', monospace;
+			code{
+				background-color: #dedede;
+				display: block;
+				padding: 5px;
+				font-family: "Courier", monospace;
 				overflow: scroll;
-				max-width: 100%;
-				min-width: 99%;
-				margin: 5px;
+			}
+			fieldset{
+				box-shadow: 3px 3px 5px #cecece;
+			}
+			fieldset, fieldset legend{
+				border: 1px #000000 solid;
+				border-radius: 10px;
+				margin: 10px;	
+			}
+			fieldset legend{
+				margin-left: 20px;
+				padding: 0 5px;
+				font-family: "Times New Roman", serif;
+				font-size: 12px;
+			}
+			p{
+				text-align: justify;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="head">
-			<h3>Welcome to</h3>
-			<h5>Baybayin Transliterator API</h5>
-		</div>
-		<div class="body">
-			<p>Call: https://api-baybayin-transliterator.vercel.app</p>
-			<p>Get parameter: text</p>
-			<p>&emsp;This is my simple roman to baybayin transliterator api powered by Vercel App and ExpressJS.</p>
-			<div>
-				<p>Sample code:</p>
-				<pre>
-					<code>
-const axios = require("axios")
-
-async function transliterate(text){
-	let result = await axios.get("https://api-baybayin-transliterator.vercel.app/?text=" + text).then((r) => {  
-		return r.data
-	}).catch((e) => {
-		console.error("Error [Baybayin API]: " + e)
-		return null
-	})
-	return result
-}
-
-module.exports = async (data) => {
-
-	let result = await transliterate(data)
-	console.log(result)
-	
-}
-					</code>
-				</pre>
-			</div>
-			<div>
-				<p>Sample Result:</p>
-				<pre>
-					<code>
-{
-	"baybay": "Baybayin Characters here"
-}
-					</code>
-				</pre>
-			</div>
-			<p>Result key: baybay</p>
-		</div>
-		<div class="foot">
-			<h5>Developed by MPOP Reverse II</h5>
-		</div>
+		<h3 align="center">Welcome to Baybayin Transliterator API</h3>
+		<h5 align="center">Developed by MPOP Reverse II</h5>
+		<fieldset>
+			<legend>Introduction</legend>
+			<p>&emsp;Baybayin is a pre-spanish script used by filipino ancestors to communicate with others. And as a tribute to them, and to spread knowledge, we decided to create a simple API for baybayin, for those who want to learn baybayin. Enjoy and God bless.</p>
+		</fieldset>
+		<h5>This is on how to use this API (Language: NodeJS)</h5>
+		<code>
+			const axios = require("axios");<br>
+			<br>
+			let baybay = async (text) => {<br>
+			&emsp;let result = await axios.get("https://api-baybayin-transliterator.vercel.app/?text=" + text).then(r => {<br>
+			&emsp;&emsp;return r.data;<br>
+			&emsp;}).catch(e => {<br>
+			&emsp;emsp;console.error(e);<br>
+			&emsp;&emsp;return null;<br>
+			&emsp;});<br>
+			&emsp;return result;<br>
+			}<br>
+			<br>
+			module.exports = async (data) => {<br>
+			&emsp;let output = await baybay(data);<br>
+			&emsp;console.log(output);<br>
+			}
+		</code>
+		<h5>And here's the result</h5>
+		<code>
+			{<br>
+			&emsp;"baybay": "ᜊᜌ᜔ᜊᜌᜒᜈ᜔"<br>
+			}
+		</code>
+		<fieldset>
+			<legend>Last part</legend>
+			<p>&emsp;Thank you fot using and supporting this api. If ever that you want to share or you see some error, kindly email us @ <a href="mailto:weryses19@gmail.com">Google Mail</a>. Thank you ang God bless.</p>
+		</fieldset>
 	</body>
+	<script type="text/javascript"></script>
 </html>
