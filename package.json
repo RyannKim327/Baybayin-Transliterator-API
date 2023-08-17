@@ -1,5 +1,5 @@
 {
-  "name": "Baybayin-Transliterator-Api",
+  "name": "baybayin-transliterator-api",
   "version": "0.0.2",
   "description": "Baybayin transliterator api. Credits to NKILM",
   "main": "index.js",

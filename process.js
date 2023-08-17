@@ -30,9 +30,9 @@ const vowels = [
 
 module.exports = (data) => {
 	let result = ""
-	let original = data
+	let original = data.trim()
 
-	data = data.toLowerCase().replace(/i/gi, "e").replace(/u/gi, "o").replace(/r/gi, "d").replace(/mga/gi, "manga").replace(/f/gi, "p").replace(/c|q/gi, "k").replace(/v/gi, "b").replace(/x|z/gi, "s").replace(/j/gi, "dy").replace(/\sng\s/gi, " nang ").replace(/\.|\?|!/gi, String.fromCharCode(5942)).replace(/,/gi, String.fromCharCode(5941))
+	data = data.trim().toLowerCase().replace(/i/gi, "e").replace(/u/gi, "o").replace(/r/gi, "d").replace(/mga/gi, "manga").replace(/f/gi, "p").replace(/ñ/gi, "ny").replace(/ch/gi, "ts").replace(/sh/gi, "sy").replace(/c|q/gi, "k").replace(/v/gi, "b").replace(/x/gi, "ks").replace(/z/gi, "s").replace(/j/gi, "dy").replace(/\sng\s/gi, " nang ").replace(/\.|\?|!/gi, String.fromCharCode(5942)).replace(/,/gi, String.fromCharCode(5941))
 	
 	for(let i = 0; i < data.length; i++){
 		if(consonants.includes(data[i])){
