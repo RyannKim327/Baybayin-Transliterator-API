@@ -33,6 +33,7 @@ module.exports = async (data) => {
 #### Result
 ``` JSON
 {
+	"original": "your query",
 	"baybay": "Baybayin Characters here"
 }
 ```
